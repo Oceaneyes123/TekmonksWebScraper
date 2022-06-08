@@ -1,10 +1,14 @@
 const https = require('https');
 const express = require('express');
 const app = express();
-const PORT = 3000;
+const PORT = process.env.port || 3000;
 
 app.listen(PORT, () => {
     console.log('listening on port ' + PORT);
+});
+
+app.get('/', (req, res) => {
+    res.send('Please add /get-latest-stories to the url to view results');
 });
 
 app.get('/get-latest-stories', (req, res) => {
